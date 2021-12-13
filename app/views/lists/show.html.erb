@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="title">
+    <h2> Your <%= @list.name.downcase%> <%= @category.name.downcase %></h2>
+    <%= link_to "add a #{@category.name.downcase.singularize}", new_category_list_path(@category, @list), class:"btn btn-flat" %>
+  </div>
+
+
+  <div class="bookmark-cards ">
+    <% @list.bookmarks.each do |bookmark|  %>
+      <div class="bookmark-card ">
+        <img src= <%= bookmark.item.poster_url %> class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="card-title d-flex">
+            <h6><%= bookmark.item.title %></h6> -
+            <%# <p><%= bookmark.item.rating %></p>
+        <div class="card-footer d-flex justify-content-between">
+          <%# <p class="card-comment"><%= bookmark.comment %></p>
+          <%= link_to 'delete', bookmark_path(bookmark), method: :delete, class: "card-delete"  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  </div>
+
+</div>
