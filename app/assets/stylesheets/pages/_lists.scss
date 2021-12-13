@@ -1,0 +1,17 @@
+.title {
+  display:flex;
+  justify-content: space-between;
+  margin: 25px;
+  margin-right: 50px;
+
+}
+
+h2 {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.list-changes {
+  top : 20px;
+  right : 20px;
+}

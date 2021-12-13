@@ -1,0 +1,11 @@
+<div class="container">
+
+  <ul>
+    <% @categories.each do |categories| %>
+      <div class="category-list">
+      <li class = main-li> <%=  link_to categories.name, category_lists_path(categories) %> </li>
+      </div>
+    <% end %>
+  </ul>
+
+</div>

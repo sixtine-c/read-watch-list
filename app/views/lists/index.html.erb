@@ -1,0 +1,19 @@
+<div class="title">
+<h2> Your <%= @category.name %></h2><%= link_to "add a list ", new_category_list_path(@category, @list), class:"btn btn-flat" %>
+</div>
+
+<div class="list-cards">
+    <% @lists.each do |list| %>
+      <%= link_to category_list_path(@category, list), class: "link-card-category"  do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <div class="list-changes">
+            <%= link_to '', new_category_list_path(@category, @list), class:"fas fa-pen" %>
+            <%= link_to '', new_category_list_path(@category, @list), class:"far fa-trash-alt" %>
+          </div>
+          <div class="list-card-text">
+            <%= list.name %>
+          </div>
+        </div>
+      <%end %>
+    <% end %>
+</div>
