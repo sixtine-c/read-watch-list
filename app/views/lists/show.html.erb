@@ -2,7 +2,7 @@
 
   <div class="title">
     <h2> Your <%= @list.name.downcase%> <%= @category.name.downcase %></h2>
-    <%= link_to "add a #{@category.name.downcase.singularize}", new_category_list_path(@category, @list), class:"btn btn-flat" %>
+    <%= link_to "add a #{@category.name.downcase.singularize}", new_category_list_bookmark_path(@category, @list, @bookmark), class:"btn btn-flat" %>
   </div>
 
 

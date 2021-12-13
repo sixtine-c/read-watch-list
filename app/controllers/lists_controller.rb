@@ -13,7 +13,6 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
-
   end
 
   def create
@@ -52,7 +51,7 @@ class ListsController < ApplicationController
   end
 
   def lists_params
-    params.require(:list).permit(:name, :category_id)
+    params.require(:list).permit(:name, :category_id, :photo)
   end
 
 end

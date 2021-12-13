@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="new-bookmark-container col-12 col-lg-6">
+      <%= simple_form_for [@category, @list, @bookmark] do |f| %>
+        <h3>Add your new <%= @category.name.singularize.downcase %></h3>
+        <%= f.association :item, prompt: "Choose a #{@category.name.singularize.downcase}" %>
+        <%# <%= f.input :photo, as: :file %>
+        <%= f.button :submit, label: "create my #{@category.name.singularize.downcase}", class: 'btn btn-flat' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%# <%= @category.name.singularize.downcase %>

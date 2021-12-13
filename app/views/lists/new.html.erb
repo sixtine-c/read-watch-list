@@ -4,7 +4,7 @@
       <%= simple_form_for [@category, @list] do |f| %>
         <h3>Add your new list</h3>
         <%= f.input :name  %>
-        <%# <%= f.input :photo, as: :file %>
+        <%= f.input :photo, as: :file %>
         <%= f.button :submit, label: "create my list", class: 'btn btn-flat' %>
       <% end %>
     </div>
