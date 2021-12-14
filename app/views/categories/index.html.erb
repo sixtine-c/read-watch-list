@@ -1,11 +1,25 @@
 <div class="container">
 
-  <ul>
-    <% @categories.each do |categories| %>
-      <div class="category-list">
-      <li class = main-li> <%=  link_to categories.name, category_lists_path(categories) %> </li>
-      </div>
-    <% end %>
-  </ul>
+<div class="title-category">
+<h2> Welcome to your read & watch list, @user </h2>
+<h3> What are you up to today? </h3>
+</div>
 
+<div class="category-cards">
+    <% @categories.each do |category| %>
+      <%= link_to category_lists_path(category), class: "link-card-category"  do %>
+        <% if category.id == 1 %>
+          <div class="category-card-1" >
+        <% elsif category.id == 2 %>
+          <div class="category-card-2">
+
+        <% else %>
+          <div class="category-card random-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
+        <% end %>
+          <div class="category-card-text">
+            <%= category.name %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 </div>

@@ -8,20 +8,24 @@
 
   <div class="bookmark-cards ">
     <% @list.bookmarks.each do |bookmark|  %>
-      <div class="bookmark-card ">
-        <img src= <%= bookmark.item.poster_url %> class="card-img-top" alt="...">
-        <div class="card-body">
-          <div class="card-title d-flex">
-            <h6><%= bookmark.item.title %></h6> -
-            <%# <p><%= bookmark.item.rating %></p>
-        <div class="card-footer d-flex justify-content-between">
-          <%# <p class="card-comment"><%= bookmark.comment %></p>
-          <%= link_to 'delete', bookmark_path(bookmark), method: :delete, class: "card-delete"  %>
+        <div class="bookmark-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=image_path bookmark.item.poster_url, height: 300, crop: :fill %>')">
+          <div class="card-body">
+            <div class="card-title d-flex">
+              <h3><%= bookmark.item.title %></h3>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <p><%= bookmark.item.rating %></p>
+            </div>
+            <div class="bookmark-changes">
+              <%= link_to '', edit_category_list_bookmark_path(@category, @list, bookmark), class:"fas fa-pen" %>
+              <%= link_to '', category_list_bookmark_path(@category, @list, bookmark), method: :delete, class: "far fa-trash-alt"  %>
+            </div>
+            <%# <p class="card-comment"><%= bookmark.comment %>
+          </div>
         </div>
-      </div>
     <% end %>
   </div>
 
-  </div>
+
 
 </div>

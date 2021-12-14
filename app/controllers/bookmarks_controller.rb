@@ -9,12 +9,32 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(bookmarks_params)
     @bookmark.list_id = @list.id
-    if @bookmark.save
+
+    if @bookmark.save!
       redirect_to category_list_path(@category, @list)
     else
       render :new
     end
   end
+
+  def edit
+    @bookmark = Bookmark.find(params[:id])
+    @list.category_id = @category.id
+  end
+
+  def update
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.list_id = @list.id
+    @bookmark.update(bookmarks_params)
+    redirect_to category_list_path(@category, @list)
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to category_list_path(@category, @list)
+  end
+
 
   private
 
@@ -27,6 +47,6 @@ class BookmarksController < ApplicationController
   end
 
   def bookmarks_params
-    params.require(:list).permit(:name, :category_id, :photo)
+    params.require(:bookmark).permit(:comment, :item_id)
   end
 end

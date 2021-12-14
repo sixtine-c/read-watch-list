@@ -2,6 +2,7 @@ class List < ApplicationRecord
   belongs_to :category
   has_many :bookmarks, dependent: :destroy
   has_many :items, through: :bookmarks
+  validates :name, presence: true, uniqueness: true
   has_one_attached :photo
 
   after_create :create_photo

@@ -4,20 +4,26 @@
 
 <div class="list-cards">
     <% @lists.each do |list| %>
-      <%= link_to category_list_path(@category, list), class: "link-card-category"  do %>
         <% if list.photo.attached? %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+          <div class="list-card" style="background-image: linear-gradient(rgba(0,0,0,-7), rgba(0,0,0,-7)), url('<%=cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+            <div class="list-card-text">
+              <%= link_to "#{list.name}", category_list_path(@category, list), class: "link-card-category"%>
+            </div>
+              <div class="list-changes">
+                <%= link_to '', edit_category_list_path(@category, list), class:"fas fa-pen" %>
+                <%= link_to '', category_list_path(@category, list), method: :delete, class:"far fa-trash-alt" %>
+              </div>
+          </div>
         <% else %>
-          <div class="card-category random-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
-        <% end %>
+          <div class="list-card random-image" style="background-image: linear-gradient(rgba(0,0,0,-7), rgba(0,0,0,-7)), url(https://source.unsplash.com/random)">
+            <div class="list-card-text">
+              <%= link_to "#{list.name}", category_list_path(@category, list), class: "link-card-category"%>
+            </div>
             <div class="list-changes">
               <%= link_to '', edit_category_list_path(@category, list), class:"fas fa-pen" %>
               <%= link_to '', category_list_path(@category, list), method: :delete, class:"far fa-trash-alt" %>
             </div>
-            <div class="list-card-text">
-              <%= list.name %>
-          </div>
         </div>
-      <% end %>
+        <% end %>
     <% end %>
 </div>
