@@ -9,6 +9,17 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmark = Bookmark.new
+    @bookmarks = @list.bookmarks
+
+
+    if params[:query].present?
+      @bookmarks = @bookmarks.joins(:item).where('items.title ILIKE ?', "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'list.html', locals: { bookmarks: @bookmarks } }
+    end
   end
 
   def new

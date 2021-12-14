@@ -1,0 +1,26 @@
+  <div class="bookmark-container " data-refresh-list-target="list">
+    <% if params[:query].blank? %>
+      <h1 class="h3"><%= pluralize @bookmarks.count, 'movie' %> available</h1>
+    <% else %>
+      <h1 class="h3"><%= pluralize @bookmarks.count, 'result' %> for <code><%= params[:query] %></code></h1>
+    <% end %>
+    <div class="bookmark-cards " >
+      <% @bookmarks.each do |bookmark|  %>
+          <div class="bookmark-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=image_path bookmark.item.poster_url, height: 300, crop: :fill %>')">
+            <div class="card-body">
+              <div class="card-title d-flex">
+                <h3><%= bookmark.item.title %></h3>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <p><%= bookmark.item.rating %></p>
+              </div>
+              <div class="bookmark-changes">
+                <%= link_to '', edit_category_list_bookmark_path(@category, @list, bookmark), class:"fas fa-pen" %>
+                <%= link_to '', category_list_bookmark_path(@category, @list, bookmark), method: :delete, class: "far fa-trash-alt"  %>
+              </div>
+              <%# <p class="card-comment"><%= bookmark.comment %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
