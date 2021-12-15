@@ -1,8 +1,8 @@
   <div class="bookmark-container " data-refresh-list-target="list">
     <% if params[:query].blank? %>
-      <h1 class="h3"><%= pluralize @bookmarks.count, 'movie' %> available</h1>
+      <h1 class="h3 mb-3"><%= pluralize @bookmarks.count, 'movie' %> available</h1>
     <% else %>
-      <h1 class="h3"><%= pluralize @bookmarks.count, 'result' %> for <code><%= params[:query] %></code></h1>
+      <h1 class="h3 mb-3"><%= pluralize @bookmarks.count, 'result' %> for <code><%= params[:query] %></code></h1>
     <% end %>
     <div class="bookmark-cards " >
       <% @bookmarks.each do |bookmark|  %>

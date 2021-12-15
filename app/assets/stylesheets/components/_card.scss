@@ -30,8 +30,13 @@
   .list-card-text {
     display: flex;
     align-content: center;
+    text-decoration: none;
 
   }
+  .link-card-category {
+    text-decoration: none !important;
+  }
+
 }
 .category-card-2 {
   height: 80vh;
@@ -130,7 +135,7 @@
     }
   }
   .link-card-category {
-    text-decoration: none;
+    text-decoration: none !important;
     color: white;
   }
   .list-changes{
@@ -211,7 +216,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
-  margin : 20px;
+
 
 }
 
@@ -241,10 +246,7 @@
 
     }
   }
-  .link-card-category {
-    text-decoration: none;
-    color: white;
-  }
+
   .bookmark-changes{
     display: flex;
     justify-content: end;
