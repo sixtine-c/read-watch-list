@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="new-bookmark-container col-12 col-lg-6">
+    <div class="form-container col-12 col-lg-6">
       <%= simple_form_for [@category, @list, @bookmark] do |f| %>
         <h3>Add your new <%= @category.name.singularize.downcase %></h3>
         <%= f.association :item, collection: Item.all.order(:title), prompt: "Choose a #{@category.name.singularize.downcase}",input_html: { data: { controller: 'select2' }}  %>
