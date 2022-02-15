@@ -113,7 +113,7 @@
   color: white;
   background-size: cover;
   background-position: center;
-  opacity:0.8;
+  // opacity:0.8;
   display: flex;
   position: relative;
   justify-content: center;
@@ -123,6 +123,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-blend-mode: lighten;
   &:hover {
     opacity : 1;
     .far {
@@ -225,7 +226,7 @@
   color: white;
   background-size: cover;
   background-position: center;
-  opacity:0.8;
+  // opacity:0.8;
   display: flex;
   position: relative;
   justify-content: center;
@@ -235,6 +236,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-blend-mode: lighten;
   &:hover {
     opacity : 1;
     .far {
