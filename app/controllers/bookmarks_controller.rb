@@ -35,7 +35,6 @@ class BookmarksController < ApplicationController
     redirect_to category_list_path(@category, @list)
   end
 
-
   private
 
   def set_category
